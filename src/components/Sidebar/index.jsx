@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import NavegationItem from "./NavegationItem";
 
 const StyledList = styled.ul`
     list-style: none;
@@ -12,21 +13,41 @@ const Sidebar = () => {
         <aside>
             <nav>
                 <StyledList>
-                    <li>
-                        <a href="#home">Home</a>
-                    </li>
-                    <li>
-                        <a href="#mostviewed">Most viewed</a>
-                    </li>
-                    <li>
-                        <a href="#mostliked">Most liked</a>
-                    </li>
-                    <li>
-                        <a href="#new">New</a>
-                    </li>
-                    <li>
-                        <a href="#surprise">Surprise me</a>
-                    </li>
+                    <NavegationItem 
+                        activeIcon="/icones/home-ativo.png" 
+                        inactiveIcon="/icones/home-inativo.png"
+                        active={true}
+                    >
+                        Home
+                    </NavegationItem>
+                    <NavegationItem 
+                        activeIcon="/icones/mais-vistas-ativo.png" 
+                        inactiveIcon="/icones/mais-vistas-inativo.png"
+                        active={false}
+                    >
+                        Most viewed
+                    </NavegationItem>
+                    <NavegationItem 
+                        activeIcon="/icones/mais-curtidas-ativo.png" 
+                        inactiveIcon="/icones/mais-curtidas-inativo.png"
+                        active={false}
+                    >
+                        Most liked
+                    </NavegationItem>
+                    <NavegationItem 
+                        activeIcon="/icones/novas-ativo.png" 
+                        inactiveIcon="/icones/novas-inativo.png"
+                        active={false}
+                    >
+                        New
+                    </NavegationItem>
+                    <NavegationItem 
+                        activeIcon="/icones/surpreenda-me-ativo.png" 
+                        inactiveIcon="/icones/surpreenda-me-inativo.png"
+                        active={false}
+                    >
+                        Surprise me
+                    </NavegationItem>
                 </StyledList>    
             </nav>
         </aside>
