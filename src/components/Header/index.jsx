@@ -13,7 +13,7 @@ const HeaderStyled = styled.header`
 const Header = () => {
   return (
     <HeaderStyled>
-        <img src="./public/imagens/logo.png" alt="Logo" />
+        <img src="/imagens/logo.png" alt="Logo" />
         <TextField />
     </HeaderStyled>
   );
