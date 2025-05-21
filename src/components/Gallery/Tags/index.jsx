@@ -10,14 +10,14 @@ const TagsContainer = styled.section`
 
 const StyledTitle = styled.h3`
     color: #D9D9D9;
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
-    font-family: GandhiSansRegular;
+    font-family: 'GandhiSansRegular';
     font-weight: 300;
 `
 
 const TagButton = styled.button`
-    font-size: 24px;
+    font-size: 20px;
     color: #FFFFFF;
     background: rgba(217, 217, 217, 0.3);
     border-radius: 10px;
@@ -26,7 +26,7 @@ const TagButton = styled.button`
     padding: 12px;
     box-sizing: border-box;
     border: 2px solid transparent;
-    font-family: GandhiSansRegular;
+    font-family: 'GandhiSansRegular';
     font-weight: 100;
     &:hover {
         border-color: #C98CF1;

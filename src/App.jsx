@@ -4,7 +4,10 @@ import Header from "./components/Header"
 import Sidebar from "./components/Sidebar"
 import Banner from "./components/Banner"
 import bannerBackground from './assets/banner.png'
-import Gallery from "./components/Gallery"
+import Gallery from './components/Gallery'
+
+import photos from './photos.json'
+import { useState } from "react"
 
 const BackGroundGradient =  styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -29,7 +32,9 @@ const AppContainer = styled.div`
   max-width: 100%;
 `
 
-function App() {
+const App = () => {
+
+  const [GalleryPhotos, setGalleryPhotos] = useState(photos)
   return (
     <BackGroundGradient>
       <GlobalStyles />
@@ -42,7 +47,7 @@ function App() {
             text="The most complete gallery of space photos!"
             backgroundImage={bannerBackground}
             />
-            <Gallery/>
+            <Gallery photos={GalleryPhotos}/>
           </GalleryContainer>
         </MainWrapper>
       </AppContainer>
