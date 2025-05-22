@@ -29,7 +29,7 @@ const StyledDialog = styled.dialog`
     }
 `
 
-const ModalZoom = ({ photo, whenClose }) => {
+const ModalZoom = ({ photo, whenClose, toToggleFavorite }) => {
 
     return ( 
         <>
@@ -39,6 +39,7 @@ const ModalZoom = ({ photo, whenClose }) => {
                     <Image
                         photo={photo} 
                         expand={true}
+                        toToggleFavorite={toToggleFavorite}
                     />
                     <form method="dialog">
                         <IconButton formMethod="dialog">

@@ -23,7 +23,7 @@ const ContainerImages = styled.section`
     }
 `
 
-const Gallery = ({ photos = [], whenSelectPhoto }) => {
+const Gallery = ({ photos = [], whenSelectPhoto, toToggleFavorite }) => {
     return (
         <>
             <Tags/>
@@ -33,6 +33,7 @@ const Gallery = ({ photos = [], whenSelectPhoto }) => {
                     <ContainerImages>
                         {photos.map( photo => <Image
                             whenRequestedZoom={whenSelectPhoto}
+                            toToggleFavorite={toToggleFavorite}
                             key={photo.id}
                             photo={photo} />)
                         }    
