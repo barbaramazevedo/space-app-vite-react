@@ -23,7 +23,7 @@ const ContainerImages = styled.section`
     }
 `
 
-const Gallery = ({ photos = [] }) => {
+const Gallery = ({ photos = [], whenSelectPhoto }) => {
     return (
         <>
             <Tags/>
@@ -32,6 +32,7 @@ const Gallery = ({ photos = [] }) => {
                     <Title>Browse the gallery</Title>
                     <ContainerImages>
                         {photos.map( photo => <Image
+                            whenRequestedZoom={whenSelectPhoto}
                             key={photo.id}
                             photo={photo} />)
                         }    
