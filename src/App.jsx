@@ -9,6 +9,7 @@ import Gallery from './components/Gallery'
 import photos from './photos.json'
 import { useState } from "react"
 import ModalZoom from "./components/ModalZoom"
+import Footer from "./components/Footer"
 
 const BackGroundGradient =  styled.div`
   background: linear-gradient(174.61deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -18,7 +19,7 @@ const BackGroundGradient =  styled.div`
 
 const MainWrapper = styled.main`
   display: flex;
-  gap: 100px;
+  gap: 10px;
 `
 
 const GalleryContainer = styled.section`
@@ -73,12 +74,13 @@ const App = () => {
             />
           </GalleryContainer>
         </MainWrapper>
-        <ModalZoom 
+      </AppContainer>
+      <ModalZoom 
           photo={selectedPhoto} 
           whenClose={() => setSelectedPhoto(null)}
           toToggleFavorite={toToggleFavorite}
         />
-      </AppContainer>
+        <Footer />
     </BackGroundGradient>
   )
 }
