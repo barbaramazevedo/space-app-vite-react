@@ -37,11 +37,16 @@ const SearchIcon = styled.img`
     height: 38px;
 `;
 
-const TextField = (props) => {
+const TextField = ({ value, onChange, ...props }) => {
   return (
     <ContainerStyled>
-        <TextFieldStyled placeholder="What are you looking for?" {...props} />
-        <SearchIcon src="/imagens/search.png" alt="Search Icon" />
+      <TextFieldStyled 
+        placeholder="What are you looking for?"
+        value={value}
+        onChange={onChange}
+        {...props} 
+      />
+      <SearchIcon src="/imagens/search.png" alt="Search Icon" />
     </ContainerStyled>
   );
 }

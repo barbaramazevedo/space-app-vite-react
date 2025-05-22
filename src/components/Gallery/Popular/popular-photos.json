@@ -1,27 +1,27 @@
 [
   {
     "path": "/imagens/populares/foto-1.png",
-    "alt": "galáxia",
+    "alt": "Galaxy",
     "id": 1
   },
   {
     "path": "/imagens/populares/foto-2.png",
-    "alt": "lua",
+    "alt": "Moon",
     "id": 2
   },
   {
     "path": "/imagens/populares/foto-3.png",
-    "alt": "terra",
+    "alt": "Earth",
     "id": 3
   },
   {
     "path": "/imagens/populares/foto-4.png",
-    "alt": "nuvem",
+    "alt": "Cloud in the desert",
     "id": 4
   },
   {
     "path": "/imagens/populares/foto-5.png",
-    "alt": "meteoro",
+    "alt": "Meteor",
     "id": 5
   }
 ]

@@ -38,6 +38,7 @@ export const App = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(photos)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
   const [selectedTag, setSelectedTag] = useState(0)
+  const [searchText, setSearchText] = useState('')
 
   const toToggleFavorite = (photo) => {
     if(photo.id === selectedPhoto?.id) {
@@ -55,15 +56,27 @@ export const App = () => {
     }))
   }
 
-  const filteredPhotos = selectedTag === 0 
-    ? galleryPhotos 
-    : galleryPhotos.filter(photo => photo.tagId === selectedTag)
+  const filteredPhotos = galleryPhotos.filter(photo => {
+  const hasSearchText = searchText.trim() !== ''
+  const hasTagFilter = selectedTag !== 0
+  
+  if (!hasSearchText && !hasTagFilter) return true
+  
+  const matchesTag = selectedTag === 0 || photo.tagId === selectedTag
+  const matchesSearch = photo.title.toLowerCase().includes(searchText.toLowerCase())
+  
+  if (hasSearchText && hasTagFilter) {
+    return matchesTag || matchesSearch
+  }
+  
+  return hasSearchText ? matchesSearch : matchesTag
+  })
 
   return (
     <BackGroundGradient>
       <GlobalStyles />
       <AppContainer>
-        <Header />
+        <Header onSearchChange={setSearchText}/>
         <MainWrapper>
           <Sidebar />
           <GalleryContainer>
