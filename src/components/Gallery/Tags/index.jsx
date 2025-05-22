@@ -39,12 +39,20 @@ const Div = styled.div`
     justify-content: end;
 `
 
-const Tags = () => {
+const Tags = ({ selectedTag, onTagSelect }) => {
     return <TagsContainer>
         <StyledTitle>Search for tags:</StyledTitle>
         <Div>
             {tags.map(tag => (
-                <TagButton key={tag.id}>{tag.title}</TagButton>
+                <TagButton 
+                    key={tag.id}
+                    onClick={() => onTagSelect(tag.id)}
+                    style={{
+                        borderColor: selectedTag === tag.id ? '#C98CF1' : 'transparent'
+                    }}
+                >
+                    {tag.title}
+                </TagButton>
             ))}
         </Div> 
     </TagsContainer>

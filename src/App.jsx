@@ -34,9 +34,10 @@ const AppContainer = styled.div`
   max-width: 100%;
 `
 
-const App = () => {
+export const App = () => {
   const [galleryPhotos, setGalleryPhotos] = useState(photos)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
+  const [selectedTag, setSelectedTag] = useState(0)
 
   const toToggleFavorite = (photo) => {
     if(photo.id === selectedPhoto?.id) {
@@ -51,9 +52,12 @@ const App = () => {
         ...galleryPhoto,
         favorite: galleryPhoto.id === photo.id ? !photo.favorite : galleryPhoto.favorite
       }
-
     }))
   }
+
+  const filteredPhotos = selectedTag === 0 
+    ? galleryPhotos 
+    : galleryPhotos.filter(photo => photo.tagId === selectedTag)
 
   return (
     <BackGroundGradient>
@@ -64,13 +68,15 @@ const App = () => {
           <Sidebar />
           <GalleryContainer>
             <Banner
-            text="The most complete gallery of space photos!"
-            backgroundImage={bannerBackground}
+              text="The most complete gallery of space photos!"
+              backgroundImage={bannerBackground}
             />
             <Gallery 
               whenSelectPhoto={photo => setSelectedPhoto(photo)}
               toToggleFavorite={toToggleFavorite} 
-              photos={galleryPhotos}
+              photos={filteredPhotos} 
+              selectedTag={selectedTag}
+              onTagSelect={setSelectedTag}
             />
           </GalleryContainer>
         </MainWrapper>

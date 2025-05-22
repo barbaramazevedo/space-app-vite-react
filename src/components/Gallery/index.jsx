@@ -23,10 +23,10 @@ const ContainerImages = styled.section`
     }
 `
 
-const Gallery = ({ photos = [], whenSelectPhoto, toToggleFavorite }) => {
+const Gallery = ({ photos = [], whenSelectPhoto, toToggleFavorite, selectedTag, onTagSelect }) => {
     return (
         <>
-            <Tags/>
+            <Tags selectedTag={selectedTag} onTagSelect={onTagSelect}/>
             <GalleryContainer>
                 <FluidSection>
                     <Title>Browse the gallery</Title>
