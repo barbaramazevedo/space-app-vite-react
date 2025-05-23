@@ -33,12 +33,6 @@ const Sidebar = () => {
                         Most liked
                     </NavegationItem>
                     <NavegationItem 
-                        activeIcon="/icones/novas-ativo.png" 
-                        inactiveIcon="/icones/novas-inativo.png"
-                    >
-                        New
-                    </NavegationItem>
-                    <NavegationItem 
                         activeIcon="/icones/surpreenda-me-ativo.png" 
                         inactiveIcon="/icones/surpreenda-me-inativo.png"
                     >
