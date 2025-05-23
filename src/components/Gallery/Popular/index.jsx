@@ -1,6 +1,6 @@
 import Title from "../../Title"
 import { styled } from "styled-components"
-import photos from "./popular-photos.json"
+import spaceData from '@/data/spaceData.json'
 
 const ColumnPhotos = styled.section`
     display: flex;
@@ -29,9 +29,9 @@ const ButtonPopular = styled.button`
 const Popular = ( ) => {
     return <>
         <section>
-            <Title $alignment="center">Popular</Title>
+            <Title $alignment="center">Trend photos</Title>
             <ColumnPhotos>
-                {photos.map(photo => <Image key={photo.id} src={photo.path} alt={photo.alt}/>)}
+                {spaceData.trends.map(trend => <Image key={trend.id} src={trend.path} alt={trend.alt}/>)}
             </ColumnPhotos>
             <ButtonPopular>View more</ButtonPopular>
         </section>

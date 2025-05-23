@@ -18,5 +18,9 @@
     {
             "id": 4,
             "title": "Nebulae"
-        }
+        },
+    {
+            "id": 5,
+            "title": "Trend"
+        }    
 ]

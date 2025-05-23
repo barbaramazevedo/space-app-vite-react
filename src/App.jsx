@@ -6,7 +6,7 @@ import Banner from "./components/Banner"
 import bannerBackground from './assets/banner.png'
 import Gallery from './components/Gallery'
 
-import photos from './photos.json'
+import spaceData from '/src/data/spaceData.json'
 import { useState } from "react"
 import ModalZoom from "./components/ModalZoom"
 import Footer from "./components/Footer"
@@ -35,7 +35,7 @@ const AppContainer = styled.div`
 `
 
 export const App = () => {
-  const [galleryPhotos, setGalleryPhotos] = useState(photos)
+  const [galleryPhotos, setGalleryPhotos] = useState(spaceData.photos)
   const [selectedPhoto, setSelectedPhoto] = useState(null)
   const [selectedTag, setSelectedTag] = useState(0)
   const [searchText, setSearchText] = useState('')
