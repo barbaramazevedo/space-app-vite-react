@@ -9,7 +9,7 @@ const StyledList = styled.ul`
     width: 236px;
 `
 
-const Sidebar = ({ onSurpriseMe }) => {
+const Sidebar = ({ onSurpriseMe, onMostLiked }) => {
     const [activeItem, setActiveItem] = useState('home');
 
     return (
@@ -36,7 +36,10 @@ const Sidebar = ({ onSurpriseMe }) => {
                         activeIcon="/icones/mais-curtidas-ativo.png" 
                         inactiveIcon="/icones/mais-curtidas-inativo.png"
                         active={activeItem === 'mostLiked'}
-                        onClick={() => setActiveItem('mostLiked')}
+                        onClick={() => {
+                            setActiveItem('mostLiked');
+                            onMostLiked();
+                        }}
                     >
                         Most liked
                     </NavegationItem>

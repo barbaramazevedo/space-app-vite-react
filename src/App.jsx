@@ -39,6 +39,7 @@ export const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null)
   const [selectedTag, setSelectedTag] = useState(0)
   const [searchText, setSearchText] = useState('')
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false)
 
   const toToggleFavorite = (photo) => {
     if(photo.id === selectedPhoto?.id) {
@@ -59,6 +60,8 @@ export const App = () => {
   const filteredPhotos = galleryPhotos.filter(photo => {
   const hasSearchText = searchText.trim() !== ''
   const hasTagFilter = selectedTag !== 0
+
+  if (showOnlyFavorites && !photo.favorite) return false
   
   if (!hasSearchText && !hasTagFilter) return true
   
@@ -83,13 +86,21 @@ const handleSurpriseMe = () => {
   setSearchText('');
 }
 
+const handleMostLiked = () => {
+    setShowOnlyFavorites(true)
+    setSelectedTag(0)
+    setSearchText('')
+}
+
   return (
     <BackGroundGradient>
       <GlobalStyles />
       <AppContainer>
         <Header onSearchChange={setSearchText}/>
         <MainWrapper>
-          <Sidebar onSurpriseMe={handleSurpriseMe} />
+          <Sidebar 
+            onSurpriseMe={handleSurpriseMe}
+            onMostLiked={handleMostLiked} />
           <GalleryContainer>
             <Banner
               text="The most complete gallery of space photos!"
