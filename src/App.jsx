@@ -72,13 +72,24 @@ export const App = () => {
   return hasSearchText ? matchesSearch : matchesTag
   })
 
+  const getRandomPhotos = () => {
+  const shuffled = [...spaceData.photos].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, 4);
+}
+
+const handleSurpriseMe = () => {
+  setGalleryPhotos(getRandomPhotos());
+  setSelectedTag(0);
+  setSearchText('');
+}
+
   return (
     <BackGroundGradient>
       <GlobalStyles />
       <AppContainer>
         <Header onSearchChange={setSearchText}/>
         <MainWrapper>
-          <Sidebar />
+          <Sidebar onSurpriseMe={handleSurpriseMe} />
           <GalleryContainer>
             <Banner
               text="The most complete gallery of space photos!"

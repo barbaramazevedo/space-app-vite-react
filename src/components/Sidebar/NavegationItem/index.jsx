@@ -12,8 +12,11 @@ const ListItemStyled = styled.li`
     gap: 22px;
 `
 
-const NavegationItem = ({ children, activeIcon,  inactiveIcon, active = false}) => {
-    return <ListItemStyled $active={active}>  
+const NavegationItem = ({ children, activeIcon,  inactiveIcon, active = false, onClick}) => {
+    return <ListItemStyled 
+            $active={active}
+            onClick={onClick}
+        >    
         <img src={active ? activeIcon : inactiveIcon } alt="" />
         {children}
     </ListItemStyled>

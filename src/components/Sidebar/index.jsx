@@ -8,7 +8,7 @@ const StyledList = styled.ul`
     width: 236px;
 `
 
-const Sidebar = () => {
+const Sidebar = ({ onSurpriseMe }) => {
     return (
         <aside>
             <nav>
@@ -35,6 +35,7 @@ const Sidebar = () => {
                     <NavegationItem 
                         activeIcon="/icones/surpreenda-me-ativo.png" 
                         inactiveIcon="/icones/surpreenda-me-inativo.png"
+                        onClick={onSurpriseMe}
                     >
                         Surprise me
                     </NavegationItem>
