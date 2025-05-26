@@ -54,8 +54,8 @@ Access in the browser: http://localhost:5173
 
 ## 📸 Screenshots
 
-![Header SpaceApp](.space-app/public/Readme/MainScreen1.png) 
-![Gallery Photos](.space-app/public/Readme/MainScreen2.png) 
+![Header SpaceApp](./public/Readme/MainScreen1.png) 
+![Gallery Photos](./public/Readme/MainScreen2.png) 
 
 ##  ✨ Credits
 Project developed for educational purposes as part of the study of React with Vite.
