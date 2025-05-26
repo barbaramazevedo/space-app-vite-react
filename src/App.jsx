@@ -92,6 +92,23 @@ const handleMostLiked = () => {
     setSearchText('')
 }
 
+const handleViewPhoto = (photo) => {
+  setGalleryPhotos(prevPhotos =>
+    prevPhotos.map(p =>
+      p.id === photo.id ? { ...p, views: (p.views || 0) + 1 } : p
+    )
+  );
+};
+
+const handleMostViewed = () => {
+  const sorted = [...galleryPhotos].sort((a, b) => b.views - a.views);
+  const topFour = sorted.slice(0, 4);
+  setGalleryPhotos(topFour);
+  setSelectedTag(0);
+  setSearchText('');
+  setShowOnlyFavorites(false);
+};
+
   return (
     <BackGroundGradient>
       <GlobalStyles />
@@ -100,7 +117,9 @@ const handleMostLiked = () => {
         <MainWrapper>
           <Sidebar 
             onSurpriseMe={handleSurpriseMe}
-            onMostLiked={handleMostLiked} />
+            onMostLiked={handleMostLiked}
+            handleMostViewed={handleMostViewed} 
+          />
           <GalleryContainer>
             <Banner
               text="The most complete gallery of space photos!"
@@ -120,6 +139,7 @@ const handleMostLiked = () => {
           photo={selectedPhoto} 
           whenClose={() => setSelectedPhoto(null)}
           toToggleFavorite={toToggleFavorite}
+          onViewPhoto={handleViewPhoto}
         />
         <Footer />
     </BackGroundGradient>

@@ -9,7 +9,7 @@ const StyledList = styled.ul`
     width: 236px;
 `
 
-const Sidebar = ({ onSurpriseMe, onMostLiked }) => {
+const Sidebar = ({ onSurpriseMe, onMostLiked, handleMostViewed }) => {
     const [activeItem, setActiveItem] = useState('home');
 
     return (
@@ -28,7 +28,10 @@ const Sidebar = ({ onSurpriseMe, onMostLiked }) => {
                         activeIcon="/icones/mais-vistas-ativo.png" 
                         inactiveIcon="/icones/mais-vistas-inativo.png"
                         active={activeItem === 'mostViewed'}
-                        onClick={() => setActiveItem('mostViewed')}
+                        onClick={() => {
+                            setActiveItem('mostViewed')
+                            handleMostViewed();
+                        }}
                     >
                         Most viewed
                     </NavegationItem>

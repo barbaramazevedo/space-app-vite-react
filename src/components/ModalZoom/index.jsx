@@ -1,6 +1,7 @@
 import Image from "../Gallery/Image";
 import { styled } from "styled-components";
 import IconButton from "../IconButton";
+import { useEffect } from "react";
 
 const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.7);
@@ -33,7 +34,12 @@ const StyledDialog = styled.dialog`
     }
 `
 
-const ModalZoom = ({ photo, whenClose, toToggleFavorite }) => {
+const ModalZoom = ({ photo, whenClose, toToggleFavorite, onViewPhoto }) => {
+    useEffect(() => {
+        if (photo) {
+            onViewPhoto(photo);
+        }
+    }, [photo]);
 
     return ( 
         <>
